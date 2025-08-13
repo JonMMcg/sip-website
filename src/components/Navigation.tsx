@@ -5,7 +5,7 @@ interface NavigationProps {
   logoSrc?: string;
 }
 
-const Navigation = ({ variant = 'default', logoSrc = '/lovable-uploads/21230cba-4d53-4c8f-8c9c-9c9a10da157e.png' }: NavigationProps) => {
+const Navigation = ({ variant = 'default', logoSrc = 'https://framerusercontent.com/images/ee4rrhr6y0285HlULgJjFYnNI.png' }: NavigationProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {

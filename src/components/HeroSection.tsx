@@ -14,7 +14,7 @@ const HeroSection = () => {
       className="flex items-center justify-start pt-20 relative w-full"
       style={{
         minHeight: 'calc(70vh + 48px)',
-        backgroundImage: `url('/lovable-uploads/a745b6f4-a37e-4951-8c91-c63527f55c8e.png')`,
+        backgroundImage: `url('https://framerusercontent.com/images/Q6FaB1b5REn9773AVqI6BmID4A.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
