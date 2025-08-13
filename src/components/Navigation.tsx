@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "../auth/hooks/useAuth";
 
 interface NavigationProps {
   variant?: 'default' | 'dark' | 'download';
@@ -9,6 +10,7 @@ interface NavigationProps {
 const Navigation = ({ variant = 'default', logoSrc = 'https://framerusercontent.com/images/ee4rrhr6y0285HlULgJjFYnNI.png' }: NavigationProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const { user, isAuthenticated } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,7 +54,7 @@ const Navigation = ({ variant = 'default', logoSrc = 'https://framerusercontent.
           />
         </Link>
         
-        <div className="flex space-x-8">
+        <div className="flex items-center space-x-8">
           <button
             onClick={() => scrollToSection('about')}
             className={`transition-colors ${
@@ -86,6 +88,37 @@ const Navigation = ({ variant = 'default', logoSrc = 'https://framerusercontent.
           >
             Contact
           </Link>
+          
+          {isAuthenticated ? (
+            <div className="flex items-center space-x-3">
+              {user?.photoURL && (
+                <img 
+                  src={user.photoURL} 
+                  alt="Profile" 
+                  className="w-8 h-8 rounded-full"
+                />
+              )}
+              <span className={`text-sm ${
+                variant === 'dark' || variant === 'download'
+                  ? 'text-[#002649]' 
+                  : 'text-white'
+              }`} style={{ fontFamily: 'Lato, sans-serif' }}>
+                {user?.displayName || user?.email}
+              </span>
+            </div>
+          ) : (
+            <Link
+              to="/signin"
+              className={`transition-colors ${
+                variant === 'dark' || variant === 'download'
+                  ? 'text-[#002649] hover:text-[#002649]/70' 
+                  : 'text-white hover:text-white/70'
+              }`}
+              style={{ fontFamily: 'Lato, sans-serif', fontWeight: '500' }}
+            >
+              Sign In
+            </Link>
+          )}
         </div>
       </div>
     </nav>

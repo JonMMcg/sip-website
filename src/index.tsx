@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import Index from './pages/Index';
 import Contact from './pages/Contact';
+import SignInPage from './pages/SignIn';
 import TermsOfService from './pages/TermsOfService';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import reportWebVitals from './reportWebVitals';
@@ -17,6 +18,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/signin" element={<SignInPage />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
