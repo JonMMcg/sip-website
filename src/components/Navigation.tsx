@@ -37,9 +37,10 @@ const Navigation = ({ variant = 'default', logoSrc = 'https://framerusercontent.
         variant === 'download'
           ? 'bg-white shadow-sm'
           : isScrolled 
-          ? 'bg-slate-900/80 backdrop-blur-md shadow-lg' 
+          ? 'backdrop-blur-md shadow-lg' 
           : 'bg-transparent'
       }`}
+      style={isScrolled && variant !== 'download' ? { backgroundColor: '#002649' } : {}}
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="inline-block">
@@ -54,31 +55,34 @@ const Navigation = ({ variant = 'default', logoSrc = 'https://framerusercontent.
         <div className="flex space-x-8">
           <button
             onClick={() => scrollToSection('about')}
-            className={`transition-colors font-medium ${
+            className={`transition-colors ${
               variant === 'dark' || variant === 'download'
                 ? 'text-[#002649] hover:text-[#002649]/70' 
                 : 'text-white hover:text-white/70'
             }`}
+            style={{ fontFamily: 'Lato, sans-serif', fontWeight: '500' }}
           >
             About
           </button>
           <button
             onClick={() => scrollToSection('download')}
-            className={`transition-colors font-medium ${
+            className={`transition-colors ${
               variant === 'dark' || variant === 'download'
                 ? 'text-[#002649] hover:text-[#002649]/70' 
                 : 'text-white hover:text-white/70'
             }`}
+            style={{ fontFamily: 'Lato, sans-serif', fontWeight: '500' }}
           >
             Download
           </button>
           <Link
             to="/contact"
-            className={`transition-colors font-medium ${
+            className={`transition-colors ${
               variant === 'dark' || variant === 'download'
                 ? 'text-[#002649] hover:text-[#002649]/70' 
                 : 'text-white hover:text-white/70'
             }`}
+            style={{ fontFamily: 'Lato, sans-serif', fontWeight: '500' }}
           >
             Contact
           </Link>

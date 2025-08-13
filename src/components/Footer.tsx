@@ -17,26 +17,26 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full" style={{ backgroundColor: '#032B49' }}>
+    <footer className="w-full" style={{ backgroundColor: '#002649' }}>
       <div className="container mx-auto px-6 py-10">
-        {/* Main footer content - three columns */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8" style={{ columnGap: '36px' }}>
-          {/* Left Column - Logo and Tagline */}
-          <div className="md:col-span-2 lg:col-span-2 space-y-4 lg:pr-8">
-            <Link to="/" className="inline-block">
-              <img 
-                src="https://framerusercontent.com/images/ee4rrhr6y0285HlULgJjFYnNI.png" 
-                alt="Sip Logo" 
-                className="h-8 w-auto hover:opacity-80 transition-opacity"
-              />
-            </Link>
-            <p className="text-white/80 text-sm leading-relaxed">
-              From inspiring voices to everyday experts, Sip brings you the best AMAs (Ask Me Anything).
-            </p>
-          </div>
+        {/* Top Row - Logo and Tagline on same line */}
+        <div className="flex items-center justify-center space-x-4 mb-8 flex-nowrap">
+          <Link to="/" className="inline-block flex-shrink-0">
+            <img 
+              src="https://framerusercontent.com/images/ee4rrhr6y0285HlULgJjFYnNI.png" 
+              alt="Sip Logo" 
+              className="h-8 w-auto hover:opacity-80 transition-opacity"
+            />
+          </Link>
+          <p className="text-white/80 text-sm leading-relaxed flex-shrink-0">
+            From inspiring voices to everyday experts, Sip brings you the best AMAs (Ask Me Anything).
+          </p>
+        </div>
 
-          {/* Middle Columns - Company and Support */}
-          <div className="space-y-4">
+        {/* Navigation buttons row */}
+        <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 mb-8">
+          {/* Company */}
+          <div className="space-y-2">
             <h3 className="text-white font-medium text-base">Company</h3>
             <button
               onClick={() => scrollToSection('about')}
@@ -46,7 +46,8 @@ const Footer = () => {
             </button>
           </div>
 
-          <div className="space-y-4">
+          {/* Support */}
+          <div className="space-y-2">
             <h3 className="text-white font-medium text-base">Support</h3>
             <Link
               to="/contact"
@@ -56,8 +57,8 @@ const Footer = () => {
             </Link>
           </div>
 
-          {/* Right Column - Social Media */}
-          <div className="space-y-4">
+          {/* Follow Us */}
+          <div className="space-y-2">
             <h3 className="text-white font-medium text-base">Follow Us</h3>
             <div className="flex space-x-4">
               <a
@@ -101,6 +102,9 @@ const Footer = () => {
               </a>
             </div>
           </div>
+
+          {/* Empty fourth column for grid balance */}
+          <div></div>
         </div>
 
         {/* Bottom Row - Copyright and Legal Links */}

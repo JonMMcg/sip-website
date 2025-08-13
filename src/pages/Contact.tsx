@@ -10,16 +10,13 @@ const Contact = () => {
       />
       
       <main className="pt-20">
-        <section className="w-full" style={{ backgroundColor: '#FCFCEE' }}>
+        <section className="w-full bg-white">
           <div className="container mx-auto px-6 py-20">
             <div className="max-w-4xl mx-auto">
               {/* Header */}
               <div className="text-center mb-12">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium mb-6" style={{ color: '#00061A' }}>
-                  Contact Us
-                </h1>
-                <p className="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto" style={{ color: '#002649' }}>
-                  Have questions, feedback, or want to get in touch? We'd love to hear from you.
+                <p className="text-sm md:text-base leading-relaxed max-w-2xl mx-auto" style={{ color: '#002649', fontFamily: 'Lato, sans-serif' }}>
+                  Use the form below to send us your comments. We read all feedback carefully, and we will strive to respond within 48 hours. If you provide your email address, you agree that we may contact you to better understand the comments you submitted.
                 </p>
               </div>
 
@@ -31,7 +28,7 @@ const Contact = () => {
                     <label 
                       htmlFor="name" 
                       className="block text-sm font-medium mb-2" 
-                      style={{ color: '#002649' }}
+                      style={{ color: '#002649', fontFamily: 'Lato, sans-serif' }}
                     >
                       Name
                     </label>
@@ -40,7 +37,7 @@ const Contact = () => {
                       id="name"
                       name="name"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-base"
-                      style={{ backgroundColor: '#FFFFFF' }}
+                      style={{ backgroundColor: '#FFFFFF', fontFamily: 'Lato, sans-serif' }}
                       placeholder="Your name"
                     />
                   </div>
@@ -50,7 +47,7 @@ const Contact = () => {
                     <label 
                       htmlFor="email" 
                       className="block text-sm font-medium mb-2" 
-                      style={{ color: '#002649' }}
+                      style={{ color: '#002649', fontFamily: 'Lato, sans-serif' }}
                     >
                       Email
                     </label>
@@ -59,7 +56,7 @@ const Contact = () => {
                       id="email"
                       name="email"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-base"
-                      style={{ backgroundColor: '#FFFFFF' }}
+                      style={{ backgroundColor: '#FFFFFF', fontFamily: 'Lato, sans-serif' }}
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -69,7 +66,7 @@ const Contact = () => {
                     <label 
                       htmlFor="message" 
                       className="block text-sm font-medium mb-2" 
-                      style={{ color: '#002649' }}
+                      style={{ color: '#002649', fontFamily: 'Lato, sans-serif' }}
                     >
                       Feedback and Questions
                     </label>
@@ -78,7 +75,7 @@ const Contact = () => {
                       name="message"
                       rows={6}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-base resize-vertical"
-                      style={{ backgroundColor: '#FFFFFF' }}
+                      style={{ backgroundColor: '#FFFFFF', fontFamily: 'Lato, sans-serif' }}
                       placeholder="Tell us what's on your mind..."
                     />
                   </div>
@@ -87,51 +84,19 @@ const Contact = () => {
                   <div className="pt-4">
                     <button
                       type="submit"
-                      className="w-full bg-blue-600 text-white font-medium rounded-lg px-6 py-3 transition-all duration-200 ease-out hover:bg-blue-700 hover:shadow-lg focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-base"
+                      className="w-auto text-white font-semibold px-10 py-3 transition-all duration-200 ease-out hover:shadow-lg focus:ring-2 focus:ring-offset-2 text-base mx-auto block"
+                      style={{ 
+                        backgroundColor: '#ED0942',
+                        borderRadius: '10px',
+                        fontFamily: 'Lato, sans-serif'
+                      }}
                     >
-                      Send Message
+                      Submit
                     </button>
                   </div>
                 </form>
               </div>
 
-              {/* Additional Contact Info */}
-              <div className="mt-16 text-center">
-                <div className="max-w-xl mx-auto space-y-4">
-                  <h3 className="text-xl font-medium" style={{ color: '#00061A' }}>
-                    Other Ways to Reach Us
-                  </h3>
-                  <p className="text-base leading-relaxed" style={{ color: '#002649' }}>
-                    You can also find us on social media or reach out through our community channels.
-                  </p>
-                  <div className="flex justify-center space-x-6 pt-4">
-                    <a
-                      href="https://www.instagram.com/sipthatpipinghottea/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-700 transition-colors font-medium"
-                    >
-                      Instagram
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/company/sip-inc/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-700 transition-colors font-medium"
-                    >
-                      LinkedIn
-                    </a>
-                    <a
-                      href="https://x.com/sip_scribe"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-700 transition-colors font-medium"
-                    >
-                      X (Twitter)
-                    </a>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
