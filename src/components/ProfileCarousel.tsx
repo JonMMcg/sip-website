@@ -7,42 +7,49 @@ const profiles = [
     name: "Yi Yang",
     role: "Founder, Economist",
     bio: "Experienced economist turned founder, building Sip.",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b1d5?w=400&h=500&fit=crop&crop=face"
+    image: "https://framerusercontent.com/images/nX9BBWSro8KpbxveiKWTKcVU.png"
   },
   {
     id: 2,
-    name: "Marcus Johnson",
-    role: "Environmental Scientist",
-    bio: "Pioneering research in climate science and sustainability.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face"
+    name: "Jonathan McGrath",
+    role: "Technical Cofounder",
+    bio: "Ex‑Navy Submariner turned CTO",
+    image: "https://framerusercontent.com/images/2QQXStPVeOsGqjkLyYaL8qqoPeE.jpeg"
   },
   {
     id: 3,
-    name: "Dr. Elena Rodriguez",
-    role: "Medical Researcher",
-    bio: "Leading breakthrough studies in personalized medicine.",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop&crop=face"
+    name: "Chufeng Huang",
+    role: "iOS Developer",
+    bio: "Master's in Computer Science",
+    image: "https://framerusercontent.com/images/aojq1TG3t4Kjc1X59W6piV0M5Q.jpg"
   },
   {
     id: 4,
-    name: "James Wright",
-    role: "Investment Strategist",
-    bio: "Helping individuals navigate complex financial markets.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face"
+    name: "Harshini Kandagaddala",
+    role: "Product Designer",
+    bio: "Master's in User Experience",
+    image: "https://framerusercontent.com/images/QAoHvEGnCnFMt0JbOzR7Um2tPg.jpg"
   },
   {
     id: 5,
-    name: "Maya Patel",
-    role: "Creative Director",
-    bio: "Transforming brands through innovative design thinking.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face"
+    name: "Danning Huang",
+    role: "Management Consultant",
+    bio: "Strategy and Entrepreneurship",
+    image: "https://framerusercontent.com/images/qGQ8f9lhvJY8WYD0XnwTxYwJeb8.jpg"
   },
   {
     id: 6,
-    name: "David Kim",
-    role: "Tech Entrepreneur",
-    bio: "Building the future of collaborative technology platforms.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=face"
+    name: "Lewis Zhang",
+    role: "Investment Banker",
+    bio: "Columbia MBA",
+    image: "https://framerusercontent.com/images/KaIywEGinq7kEXZ979t7cywDhY.jpg"
+  },
+  {
+    id: 7,
+    name: "Jing Wang",
+    role: "Alibaba Partnership Manager",
+    bio: "Global partnership and business development expert",
+    image: "https://framerusercontent.com/images/RjyMcjxyTqcUPEliqltWS8VE4bo.jpg"
   }
 ];
 
