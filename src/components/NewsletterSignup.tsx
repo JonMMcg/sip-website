@@ -46,17 +46,13 @@ const NewsletterSignup = () => {
   return (
     <section className="py-16 bg-white w-full">
       <div className="container mx-auto text-center px-6">
-        <h2 className="text-2xl md:text-3xl font-medium mb-8 text-foreground">
+        <h2 className="text-xl md:text-2xl font-medium mb-8 text-foreground" style={{ fontFamily: 'Lato, sans-serif' }}>
           Get latest news and updates
         </h2>
         
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+        <form onSubmit={handleSubmit} className="max-w-sm mx-auto">
           <div className="space-y-4">
             <div className="text-left">
-              <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                Email Address
-              </label>
-              <p className="text-xs text-muted-foreground mb-2">* indicates required</p>
               <Input
                 id="email"
                 type="email"
@@ -71,7 +67,12 @@ const NewsletterSignup = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-auto bg-primary text-white font-normal rounded-lg px-7 py-3 transition-all duration-200 ease-out hover:scale-105 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className="w-auto text-white font-semibold px-8 py-3 transition-all duration-200 ease-out hover:shadow-lg focus:ring-2 focus:ring-offset-2"
+              style={{ 
+                backgroundColor: '#ED0942',
+                borderRadius: '10px',
+                fontFamily: 'Lato, sans-serif'
+              }}
             >
               {isLoading ? "Subscribing..." : "Subscribe"}
             </button>

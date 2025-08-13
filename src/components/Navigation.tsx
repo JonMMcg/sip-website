@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 interface NavigationProps {
   variant?: 'default' | 'dark' | 'download';
@@ -7,6 +8,7 @@ interface NavigationProps {
 
 const Navigation = ({ variant = 'default', logoSrc = 'https://framerusercontent.com/images/ee4rrhr6y0285HlULgJjFYnNI.png' }: NavigationProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +20,11 @@ const Navigation = ({ variant = 'default', logoSrc = 'https://framerusercontent.
   }, []);
 
   const scrollToSection = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      // If not on home page, navigate to home and scroll
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -35,14 +42,14 @@ const Navigation = ({ variant = 'default', logoSrc = 'https://framerusercontent.
       }`}
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="/" className="inline-block">
+        <Link to="/" className="inline-block">
           <img 
             src={logoSrc} 
             alt="Sip Logo" 
-            className="h-12 w-auto max-w-full hover:opacity-80 transition-opacity"
-            style={{ height: 'auto', maxHeight: '3rem' }}
+            className="w-auto max-w-full hover:opacity-80 transition-opacity"
+            style={{ height: '3.5rem', width: 'auto' }}
           />
-        </a>
+        </Link>
         
         <div className="flex space-x-8">
           <button
@@ -65,8 +72,8 @@ const Navigation = ({ variant = 'default', logoSrc = 'https://framerusercontent.
           >
             Download
           </button>
-          <button
-            onClick={() => scrollToSection('contact')}
+          <Link
+            to="/contact"
             className={`transition-colors font-medium ${
               variant === 'dark' || variant === 'download'
                 ? 'text-[#002649] hover:text-[#002649]/70' 
@@ -74,7 +81,7 @@ const Navigation = ({ variant = 'default', logoSrc = 'https://framerusercontent.
             }`}
           >
             Contact
-          </button>
+          </Link>
         </div>
       </div>
     </nav>

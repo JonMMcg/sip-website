@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
-import Index from './pages/Index'; // Import the new Index component
+import Index from './pages/Index';
+import Contact from './pages/Contact';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -9,7 +11,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Index />
+    <Router>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 

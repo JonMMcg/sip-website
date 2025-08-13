@@ -13,7 +13,7 @@ const HeroSection = () => {
     <section 
       className="flex items-center justify-start pt-20 relative w-full"
       style={{
-        minHeight: 'calc(70vh + 48px)',
+        minHeight: 'calc(64.4vh + 48px)',
         backgroundImage: `url('https://framerusercontent.com/images/Q6FaB1b5REn9773AVqI6BmID4A.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -24,15 +24,20 @@ const HeroSection = () => {
       <div className="w-full relative z-10">
         <div className="container mx-auto px-6">
         <div className="max-w-2xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-6 leading-tight animate-fade-in">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-medium text-white mb-6 leading-tight animate-fade-in">
             Ask. Answer. Connect.
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-12 leading-relaxed font-normal animate-fade-in">
+          <p className="text-base md:text-lg text-white/90 mb-12 leading-relaxed font-normal animate-fade-in">
             From inspiring leaders to everyday experts, Sip lets you ask questions and get answers through AMAs (Ask Me Anything).
           </p>
           <button 
             onClick={scrollToDownload}
-            className="bg-primary text-white font-normal rounded-lg px-7 py-3.5 inline-flex items-center transition-all duration-200 ease-out hover:scale-105 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 animate-fade-in text-lg"
+            className="text-white font-medium px-8 py-3 inline-flex items-center transition-all duration-200 ease-out hover:shadow-lg focus:ring-2 focus:ring-offset-2 animate-fade-in text-base"
+            style={{ 
+              backgroundColor: '#ED0942', 
+              borderRadius: '10px',
+              fontFamily: 'Lato, sans-serif'
+            }}
           >
             Get Started
           </button>

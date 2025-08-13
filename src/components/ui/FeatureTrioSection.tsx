@@ -15,7 +15,7 @@ const FeatureTrioSection = () => {
     ];
   
     return (
-      <section className="w-full" style={{ backgroundColor: '#FFF6D8', paddingTop: '104px', paddingBottom: '104px' }}>
+      <section className="w-full" style={{ backgroundColor: '#FFFBF0', paddingTop: '104px', paddingBottom: '104px' }}>
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
             {features.map((feature, index) => (

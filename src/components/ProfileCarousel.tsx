@@ -87,12 +87,9 @@ const ProfileCarousel = () => {
     <section className="py-20 bg-white w-full">
       <div className="mx-auto px-6">
         <div className="text-left mb-16">
-          <h2 className="text-3xl md:text-4xl font-medium text-foreground mb-2">
-            Discover & Ask
+          <h2 className="text-xl md:text-2xl font-medium text-foreground">
+            Discover & Ask <span className="text-xl md:text-2xl font-normal" style={{ color: '#6B7280' }}>People with Unique Backgrounds</span>
           </h2>
-          <p className="text-xl md:text-2xl font-normal text-muted-foreground">
-            People with Unique Backgrounds
-          </p>
         </div>
         
         <div 
@@ -111,8 +108,8 @@ const ProfileCarousel = () => {
             <CarouselContent className="-ml-6">
               {profiles.map((profile) => (
                 <CarouselItem key={profile.id} className="pl-6 basis-full sm:basis-1/2 lg:basis-1/3">
-                  <div className="bg-white rounded-xl transition-all duration-200 hover:scale-[1.03] cursor-pointer h-full p-7">
-                     <div className="aspect-[4/5] overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 mb-7 w-4/5 mx-auto">
+                  <div className="bg-white rounded-xl transition-all duration-200 hover:scale-[1.03] cursor-pointer h-full p-6">
+                     <div className="aspect-[4/5] overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 mb-4 w-full">
                         <img
                           src={profile.image}
                           alt={`${profile.name} profile picture`}
@@ -120,10 +117,10 @@ const ProfileCarousel = () => {
                           loading="lazy"
                         />
                      </div>
-                    <div className="w-3/5 mx-auto text-left">
-                      <h3 className="font-medium mb-1 text-foreground" style={{ fontSize: '1.5rem' }}>{profile.name}</h3>
-                      <p className="font-medium mb-2 text-muted-foreground" style={{ fontSize: '1.2rem' }}>{profile.role}</p>
-                      <p className="leading-relaxed text-muted-foreground opacity-80" style={{ fontSize: '1.2rem' }}>{profile.bio}</p>
+                    <div className="w-full text-left" style={{ lineHeight: '1.275' }}>
+                      <h3 className="font-medium" style={{ fontSize: '1rem', marginBottom: '0.34rem', color: '#002649' }}>{profile.name}</h3>
+                      <p className="font-normal" style={{ fontSize: '0.875rem', marginBottom: '0.34rem', color: '#002649' }}>{profile.role}</p>
+                      <p className="font-normal" style={{ fontSize: '0.875rem', color: '#002649', opacity: '0.8' }}>{profile.bio}</p>
                     </div>
                   </div>
                 </CarouselItem>

@@ -1,7 +1,15 @@
 import { Instagram, Linkedin, Twitter } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const location = useLocation();
+
   const scrollToSection = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      // If not on home page, navigate to home and scroll
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -15,13 +23,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8" style={{ columnGap: '36px' }}>
           {/* Left Column - Logo and Tagline */}
           <div className="md:col-span-2 lg:col-span-2 space-y-4 lg:pr-8">
-            <a href="/" className="inline-block">
+            <Link to="/" className="inline-block">
               <img 
                 src="https://framerusercontent.com/images/ee4rrhr6y0285HlULgJjFYnNI.png" 
                 alt="Sip Logo" 
                 className="h-8 w-auto hover:opacity-80 transition-opacity"
               />
-            </a>
+            </Link>
             <p className="text-white/80 text-sm leading-relaxed">
               From inspiring voices to everyday experts, Sip brings you the best AMAs (Ask Me Anything).
             </p>
@@ -40,12 +48,12 @@ const Footer = () => {
 
           <div className="space-y-4">
             <h3 className="text-white font-medium text-base">Support</h3>
-            <button
-              onClick={() => scrollToSection('contact')}
+            <Link
+              to="/contact"
               className="block text-white hover:text-white/70 transition-colors text-sm"
             >
               Contact
-            </button>
+            </Link>
           </div>
 
           {/* Right Column - Social Media */}
