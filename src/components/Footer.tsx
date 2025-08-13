@@ -112,18 +112,18 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-6 text-sm text-white">
             <span>Sip Inc. Copyright ©2024</span>
             <div className="flex space-x-6">
-              <a 
-                href="#" 
+              <Link 
+                to="/privacy-policy" 
                 className="hover:text-white/70 transition-colors"
               >
                 Privacy Policy
-              </a>
-              <a 
-                href="#" 
+              </Link>
+              <Link 
+                to="/terms-of-service" 
                 className="hover:text-white/70 transition-colors"
               >
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>
