@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="md:col-span-2 lg:col-span-2 space-y-4 lg:pr-8">
             <a href="/" className="inline-block">
               <img 
-                src="/lovable-uploads/21230cba-4d53-4c8f-8c9c-9c9a10da157e.png" 
+                src="https://framerusercontent.com/images/ee4rrhr6y0285HlULgJjFYnNI.png" 
                 alt="Sip Logo" 
                 className="h-8 w-auto hover:opacity-80 transition-opacity"
               />
@@ -53,36 +53,42 @@ const Footer = () => {
             <h3 className="text-white font-medium text-base">Follow Us</h3>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.instagram.com/sipthatpipinghottea/"
+                target="_blank"
+                rel="noopener"
                 className="transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg"
                 aria-label="Follow us on Instagram"
               >
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
+                  src="https://framerusercontent.com/assets/hxtNS4tj0gfpcErgQhvJxoF869Y.png"
                   alt="Instagram"
-                  className="w-8 h-8"
+                  className="w-8 h-8 rounded"
                 />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/sip-inc/"
+                target="_blank"
+                rel="noopener"
                 className="transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg"
                 aria-label="Follow us on LinkedIn"
               >
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+                  src="https://logo.clearbit.com/LinkedIn.com?size=500"
                   alt="LinkedIn"
-                  className="w-8 h-8"
+                  className="w-8 h-8 rounded"
                 />
               </a>
               <a
-                href="#"
+                href="https://x.com/sip_scribe"
+                target="_blank"
+                rel="noopener"
                 className="transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg"
                 aria-label="Follow us on X (Twitter)"
               >
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png"
+                  src="https://logo.clearbit.com/twitter.com?size=500"
                   alt="X (Twitter)"
-                  className="w-8 h-8"
+                  className="w-8 h-8 rounded"
                 />
               </a>
             </div>
