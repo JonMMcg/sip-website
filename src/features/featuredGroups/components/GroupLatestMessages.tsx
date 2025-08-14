@@ -40,66 +40,26 @@ export const GroupLatestMessages: React.FC<GroupLatestMessagesProps> = ({
   }
 
   return (
-    <div style={{ 
-      marginBottom: '0',
-      backgroundColor: '#f8fafc',
-      borderRadius: '16px',
-      border: '1px solid #e2e8f0',
-      overflow: 'hidden',
-      boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
-    }}>
+    <div className="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden shadow-inner">
       {/* Message Thread */}
-      <div style={{
-        padding: '16px',
-        backgroundColor: '#f8fafc',
-        minHeight: '60px'
-      }}>
+      <div className="p-4 min-h-[60px]">
         {/* Sender Name */}
-        <div style={{
-          fontSize: '0.75em',
-          color: '#6b7280',
-          marginBottom: '4px',
-          fontWeight: '500'
-        }}>
+        <div className="text-xs text-slate-500 mb-1 font-medium">
           {last_message_username || 'Anonymous'}
         </div>
         
         {/* Message Bubble */}
-        <div style={{
-          backgroundColor: '#3b82f6',
-          color: 'white',
-          padding: '10px 14px',
-          borderRadius: '18px 18px 18px 4px',
-          display: 'inline-block',
-          maxWidth: '85%',
-          wordWrap: 'break-word',
-          fontSize: '0.85em',
-          lineHeight: '1.4',
-          boxShadow: '0 1px 2px rgba(59, 130, 246, 0.3)',
-          position: 'relative'
-        }}>
-          {last_message || 'No messages yet.'}
+        <div className="relative inline-block max-w-[85%] bg-blue-600 text-white py-2.5 px-3.5 rounded-2xl rounded-bl-lg shadow-sm">
+          <p className="m-0 text-sm leading-snug break-words">
+            {last_message || 'No messages yet.'}
+          </p>
           
           {/* Message tail */}
-          <div style={{
-            position: 'absolute',
-            bottom: '0px',
-            left: '-4px',
-            width: '0',
-            height: '0',
-            borderStyle: 'solid',
-            borderWidth: '0 0 8px 8px',
-            borderColor: 'transparent transparent #3b82f6 transparent'
-          }} />
+          <div className="absolute bottom-0 -left-1 w-0 h-0 border-solid border-b-8 border-r-8 border-transparent border-b-blue-600" />
         </div>
         
         {/* Timestamp */}
-        <div style={{
-          fontSize: '0.7em',
-          color: '#9ca3af',
-          marginTop: '4px',
-          marginLeft: '4px'
-        }}>
+        <div className="text-xs text-slate-400 mt-1 ml-1">
           {formatTimestamp(last_message_time)}
         </div>
       </div>

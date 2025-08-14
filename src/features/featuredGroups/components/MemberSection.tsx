@@ -9,111 +9,51 @@ interface MemberSectionProps {
 
 export const MemberSection: React.FC<MemberSectionProps> = ({ members, loading, error }) => {
   return (
-    <div style={{
-      backgroundColor: '#ffffff',
-      borderRadius: '0 0 24px 24px',
-      borderTop: '2px solid #f1f5f9',
-      padding: '20px 24px 32px 24px',
-      animation: 'slideDown 0.5s ease-out forwards',
-      isolation: 'isolate',
-      contain: 'layout style',
-      willChange: 'transform, opacity'
-    }}>
-      <div style={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'space-between',
-        marginBottom: '16px' 
-      }}>
-        <h3 style={{ 
-          margin: '0', 
-          color: '#1f2937', 
-          fontSize: '1.2em',
-          fontWeight: '600'
-        }}>
+    <div className="
+      bg-white rounded-b-2xl 
+      border-t-2 border-slate-100 
+      p-6 pt-5
+      animate-slideDown isolate
+    ">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="m-0 text-gray-800 text-lg font-semibold">
           Members
         </h3>
         {!loading && !error && (
-          <span style={{ 
-            backgroundColor: '#dbeafe', 
-            color: '#1e40af',
-            padding: '4px 8px',
-            borderRadius: '12px',
-            fontSize: '0.8em',
-            fontWeight: '600'
-          }}>
+          <span className="bg-blue-100 text-blue-800 py-1 px-2 rounded-full text-xs font-semibold">
             {members.length} {members.length === 1 ? 'member' : 'members'}
           </span>
         )}
       </div>
 
       {loading && (
-        <div style={{ 
-          textAlign: 'center', 
-          padding: '40px',
-          color: '#6b7280'
-        }}>
-          <div style={{
-            display: 'inline-block',
-            width: '32px',
-            height: '32px',
-            border: '3px solid #e5e7eb',
-            borderTop: '3px solid #3b82f6',
-            borderRadius: '50%',
-            animation: 'spin 1s linear infinite',
-            marginBottom: '12px'
-          }} />
-          <p style={{ margin: '0', fontSize: '0.9em' }}>Loading members...</p>
+        <div className="text-center p-10 text-slate-500">
+          <div className="inline-block w-8 h-8 border-[3px] border-slate-200 border-t-blue-600 rounded-full animate-spin mb-3" />
+          <p className="m-0 text-sm">Loading members...</p>
         </div>
       )}
 
       {error && (
-        <div style={{ 
-          textAlign: 'center', 
-          padding: '20px',
-          color: '#dc2626',
-          backgroundColor: '#fef2f2',
-          borderRadius: '8px',
-          border: '1px solid #fecaca'
-        }}>
-          <p style={{ margin: '0', fontSize: '0.9em' }}>
+        <div className="text-center p-5 text-red-700 bg-red-50 rounded-lg border border-red-200">
+          <p className="m-0 text-sm">
             Failed to load members: {error.message}
           </p>
         </div>
       )}
 
       {!loading && !error && members.length === 0 && (
-        <div style={{ 
-          textAlign: 'center', 
-          padding: '40px',
-          color: '#6b7280',
-          backgroundColor: '#f9fafb',
-          borderRadius: '8px',
-          border: '1px solid #e5e7eb'
-        }}>
-          <p style={{ margin: '0', fontSize: '0.9em' }}>
+        <div className="text-center p-10 text-slate-500 bg-slate-50 rounded-lg border border-slate-200">
+          <p className="m-0 text-sm">
             No members found in this group.
           </p>
         </div>
       )}
 
       {!loading && !error && members.length > 0 && (
-        <div style={{
-          overflowX: 'auto',
-          overflowY: 'hidden',
-          scrollBehavior: 'smooth',
-          WebkitOverflowScrolling: 'touch', // Smooth scrolling on iOS
-          paddingBottom: '10px',
-          animation: 'slideUp 0.4s ease-out'
-        }}>
-          <div style={{
-            display: 'flex',
-            gap: '16px',
-            paddingRight: '20px', // Extra padding at the end
-            minWidth: 'fit-content'
-          }}>
+        <div className="overflow-x-auto overflow-y-hidden smooth-scroll pb-2.5 animate-slideUp">
+          <div className="flex gap-4 pr-5 min-w-min">
             {members.map((member) => (
-              <div key={member.uId} style={{ flexShrink: 0 }}>
+              <div key={member.uId} className="flex-shrink-0">
                 <MemberCard user={member} />
               </div>
             ))}

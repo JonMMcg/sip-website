@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 // This interface now only includes the fields needed for display.
 export interface User {
@@ -19,78 +19,34 @@ interface MemberCardProps {
 
 export const MemberCard: React.FC<MemberCardProps> = ({ user }) => {
   return (
-    <div style={{
-      backgroundColor: '#fff',
-      border: 'none',
-      borderRadius: '20px',
-      padding: '20px',
-      margin: '8px',
-      boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
-      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-      cursor: 'pointer',
-      position: 'relative',
-      overflow: 'hidden',
-      width: '280px',
-      minWidth: '280px',
-      maxWidth: '280px',
-      background: 'linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)'
-    }}
-    onMouseEnter={(e) => {
-      e.currentTarget.style.transform = 'translateY(-4px)';
-      e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.15)';
-      e.currentTarget.style.borderColor = '#3b82f6';
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.boxShadow = '0 2px 12px rgba(0,0,0,0.08)';
-      e.currentTarget.style.borderColor = '#e1e5e9';
-    }}>
+    <div className="
+      relative w-[280px] min-w-[280px] max-w-[280px] 
+      p-5 m-2 rounded-[20px] 
+      bg-white bg-gradient-to-br from-white to-slate-50 
+      shadow-soft 
+      transition-all duration-300 ease-in-out 
+      cursor-pointer 
+      hover:-translate-y-1 hover:shadow-medium
+      overflow-hidden
+    ">
       
       {/* Profile Section */}
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '18px' }}>
-        <div style={{ position: 'relative' }}>
+      <div className="flex items-center mb-4.5">
+        <div className="relative">
           <img 
             src={user.profileImageURL || '/placeholder-avatar.png'} 
             alt={user.name || 'User'} 
-            style={{ 
-              width: '56px', 
-              height: '56px', 
-              borderRadius: '50%', 
-              objectFit: 'cover',
-              border: '2px solid rgba(59, 130, 246, 0.1)',
-              boxShadow: '0 4px 16px rgba(0,0,0,0.08)'
-            }} 
+            className="w-14 h-14 rounded-full object-cover border-2 border-blue-500/10 shadow-md"
           />
           {/* Online indicator */}
-          <div style={{
-            position: 'absolute',
-            bottom: '0px',
-            right: '0px',
-            width: '14px',
-            height: '14px',
-            backgroundColor: '#10b981',
-            borderRadius: '50%',
-            border: '2px solid white',
-            boxShadow: '0 2px 6px rgba(0,0,0,0.15)'
-          }} />
+          <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-white shadow-sm" />
         </div>
         
-        <div style={{ marginLeft: '14px', flex: 1 }}>
-          <h3 style={{ 
-            margin: '0 0 4px 0', 
-            fontSize: '1.05em', 
-            fontWeight: '700',
-            color: '#1f2937',
-            lineHeight: '1.3'
-          }}>
+        <div className="ml-3.5 flex-1">
+          <h3 className="m-0 mb-1 text-base font-bold text-gray-800 leading-tight">
             {user.name || 'Unknown User'}
           </h3>
-          <p style={{ 
-            margin: '0', 
-            fontSize: '0.85em', 
-            color: '#6b7280',
-            fontWeight: '500'
-          }}>
+          <p className="m-0 text-sm text-gray-500 font-medium">
             @{user.username || 'unknown'}
           </p>
         </div>
@@ -98,21 +54,9 @@ export const MemberCard: React.FC<MemberCardProps> = ({ user }) => {
 
       {/* Quote Section */}
       {user.quote && (
-        <div style={{ marginBottom: '16px' }}>
-          <div style={{
-            padding: '16px',
-            backgroundColor: 'rgba(59, 130, 246, 0.04)',
-            borderRadius: '16px',
-            border: '1px solid rgba(59, 130, 246, 0.1)',
-            position: 'relative'
-          }}>
-            <p style={{
-              margin: '0',
-              fontSize: '0.85em',
-              lineHeight: '1.6',
-              color: '#4b5563',
-              fontStyle: 'italic'
-            }}>
+        <div className="mb-4">
+          <div className="p-4 bg-blue-500/5 rounded-2xl border border-blue-500/10 relative">
+            <p className="m-0 text-sm leading-relaxed text-gray-600 italic">
               "{user.quote}"
             </p>
           </div>
@@ -120,80 +64,34 @@ export const MemberCard: React.FC<MemberCardProps> = ({ user }) => {
       )}
 
       {/* Stats Section */}
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'space-between',
-        paddingTop: '16px',
-        borderTop: '1px solid rgba(226, 232, 240, 0.6)'
-      }}>
-        <div style={{ textAlign: 'center', flex: 1 }}>
-          <div style={{ 
-            fontSize: '1em', 
-            fontWeight: '700', 
-            color: '#1f2937',
-            marginBottom: '4px'
-          }}>
+      <div className="flex justify-between pt-4 border-t border-slate-200/60">
+        <div className="text-center flex-1">
+          <div className="text-base font-bold text-gray-800 mb-1">
             {(user.followers || 0).toLocaleString()}
           </div>
-          <div style={{ 
-            fontSize: '0.7em', 
-            color: '#6b7280',
-            fontWeight: '600',
-            textTransform: 'uppercase',
-            letterSpacing: '0.5px'
-          }}>
+          <div className="text-xs text-gray-500 font-semibold uppercase tracking-wider">
             Followers
           </div>
         </div>
         
-        <div style={{ 
-          width: '1px', 
-          backgroundColor: 'rgba(226, 232, 240, 0.8)',
-          margin: '0 12px'
-        }} />
+        <div className="w-px bg-slate-200/80 mx-3" />
         
-        <div style={{ textAlign: 'center', flex: 1 }}>
-          <div style={{ 
-            fontSize: '1em', 
-            fontWeight: '700', 
-            color: '#1f2937',
-            marginBottom: '4px'
-          }}>
+        <div className="text-center flex-1">
+          <div className="text-base font-bold text-gray-800 mb-1">
             {(user.following || 0).toLocaleString()}
           </div>
-          <div style={{ 
-            fontSize: '0.7em', 
-            color: '#6b7280',
-            fontWeight: '600',
-            textTransform: 'uppercase',
-            letterSpacing: '0.5px'
-          }}>
+          <div className="text-xs text-gray-500 font-semibold uppercase tracking-wider">
             Following
           </div>
         </div>
         
-        <div style={{ 
-          width: '1px', 
-          backgroundColor: 'rgba(226, 232, 240, 0.8)',
-          margin: '0 12px'
-        }} />
+        <div className="w-px bg-slate-200/80 mx-3" />
         
-        <div style={{ textAlign: 'center', flex: 1 }}>
-          <div style={{ 
-            fontSize: '1em', 
-            fontWeight: '700', 
-            color: '#1f2937',
-            marginBottom: '4px'
-          }}>
+        <div className="text-center flex-1">
+          <div className="text-base font-bold text-gray-800 mb-1">
             {(user.subscribing || 0).toLocaleString()}
           </div>
-          <div style={{ 
-            fontSize: '0.7em', 
-            color: '#6b7280',
-            fontWeight: '600',
-            textTransform: 'uppercase',
-            letterSpacing: '0.5px'
-          }}>
+          <div className="text-xs text-gray-500 font-semibold uppercase tracking-wider">
             Subscribing
           </div>
         </div>
