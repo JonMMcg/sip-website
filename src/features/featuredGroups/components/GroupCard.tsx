@@ -3,6 +3,8 @@ import { Group } from '../services/groupService';
 import { useGroupMembers } from '../hooks/useGroupMembers';
 import { MemberCard } from './MemberCard';
 import { GroupCardHeader } from './GroupCardHeader';
+import { MemberSection } from './MemberSection';
+import { GroupLatestMessages } from './GroupLatestMessages';
 
 interface GroupCardProps {
   group: Group;
@@ -18,31 +20,6 @@ export const GroupCard: React.FC<GroupCardProps> = ({ group }) => {
   useEffect(() => {
     setIsExpanded(false);
   }, [group.id]);
-
-  const formatTimestamp = (timestamp: any) => {
-    if (!timestamp) return 'Recently';
-    
-    try {
-      // Handle Firestore Timestamp
-      const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
-      const now = new Date();
-      const diffInMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60));
-      
-      if (diffInMinutes < 1) return 'Just now';
-      if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
-      
-      const diffInHours = Math.floor(diffInMinutes / 60);
-      if (diffInHours < 24) return `${diffInHours}h ago`;
-      
-      const diffInDays = Math.floor(diffInHours / 24);
-      if (diffInDays < 7) return `${diffInDays}d ago`;
-      
-      return date.toLocaleDateString();
-    } catch (error) {
-      return 'Recently';
-    }
-  };
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -202,190 +179,21 @@ export const GroupCard: React.FC<GroupCardProps> = ({ group }) => {
           {group.description || 'No description available.'}
         </p>
 
-        {/* Latest Activity - Back in main card */}
-        {(group.last_message || group.last_message_username) && (
-          <div style={{ 
-            marginBottom: '0',
-            backgroundColor: '#f8fafc',
-            borderRadius: '16px',
-            border: '1px solid #e2e8f0',
-            overflow: 'hidden',
-            boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
-          }}>
-            {/* Message Thread */}
-            <div style={{
-              padding: '16px',
-              backgroundColor: '#f8fafc',
-              minHeight: '60px'
-            }}>
-              {/* Sender Name */}
-              <div style={{
-                fontSize: '0.75em',
-                color: '#6b7280',
-                marginBottom: '4px',
-                fontWeight: '500'
-              }}>
-                {group.last_message_username || 'Anonymous'}
-              </div>
-              
-              {/* Message Bubble */}
-              <div style={{
-                backgroundColor: '#3b82f6',
-                color: 'white',
-                padding: '10px 14px',
-                borderRadius: '18px 18px 18px 4px',
-                display: 'inline-block',
-                maxWidth: '85%',
-                wordWrap: 'break-word',
-                fontSize: '0.85em',
-                lineHeight: '1.4',
-                boxShadow: '0 1px 2px rgba(59, 130, 246, 0.3)',
-                position: 'relative'
-              }}>
-                {group.last_message || 'No messages yet.'}
-                
-                {/* Message tail */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: '0px',
-                  left: '-4px',
-                  width: '0',
-                  height: '0',
-                  borderStyle: 'solid',
-                  borderWidth: '0 0 8px 8px',
-                  borderColor: 'transparent transparent #3b82f6 transparent'
-                }} />
-              </div>
-              
-              {/* Timestamp */}
-              <div style={{
-                fontSize: '0.7em',
-                color: '#9ca3af',
-                marginTop: '4px',
-                marginLeft: '4px'
-              }}>
-                {formatTimestamp(group.last_message_time)}
-              </div>
-            </div>
-          </div>
-        )}
+        <GroupLatestMessages 
+          last_message={group.last_message}
+          last_message_username={group.last_message_username}
+          last_message_time={group.last_message_time}
+        />
 
       </div>
 
       {/* Members Section - Smooth Drawer */}
       {isExpanded && (
-        <div style={{
-          backgroundColor: '#ffffff',
-          borderRadius: '0 0 24px 24px',
-          borderTop: '2px solid #f1f5f9',
-          padding: '20px 24px 32px 24px',
-          animation: 'slideDown 0.5s ease-out forwards',
-          isolation: 'isolate',
-          contain: 'layout style',
-          willChange: 'transform, opacity'
-        }}>
-          <div style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'space-between',
-            marginBottom: '16px' 
-          }}>
-            <h3 style={{ 
-              margin: '0', 
-              color: '#1f2937', 
-              fontSize: '1.2em',
-              fontWeight: '600'
-            }}>
-              Members
-            </h3>
-            {!loading && !error && (
-              <span style={{ 
-                backgroundColor: '#dbeafe', 
-                color: '#1e40af',
-                padding: '4px 8px',
-                borderRadius: '12px',
-                fontSize: '0.8em',
-                fontWeight: '600'
-              }}>
-                {members.length} {members.length === 1 ? 'member' : 'members'}
-              </span>
-            )}
-          </div>
-
-          {loading && (
-            <div style={{ 
-              textAlign: 'center', 
-              padding: '40px',
-              color: '#6b7280'
-            }}>
-              <div style={{
-                display: 'inline-block',
-                width: '32px',
-                height: '32px',
-                border: '3px solid #e5e7eb',
-                borderTop: '3px solid #3b82f6',
-                borderRadius: '50%',
-                animation: 'spin 1s linear infinite',
-                marginBottom: '12px'
-              }} />
-              <p style={{ margin: '0', fontSize: '0.9em' }}>Loading members...</p>
-            </div>
-          )}
-
-          {error && (
-            <div style={{ 
-              textAlign: 'center', 
-              padding: '20px',
-              color: '#dc2626',
-              backgroundColor: '#fef2f2',
-              borderRadius: '8px',
-              border: '1px solid #fecaca'
-            }}>
-              <p style={{ margin: '0', fontSize: '0.9em' }}>
-                Failed to load members: {error.message}
-              </p>
-            </div>
-          )}
-
-          {!loading && !error && members.length === 0 && (
-            <div style={{ 
-              textAlign: 'center', 
-              padding: '40px',
-              color: '#6b7280',
-              backgroundColor: '#f9fafb',
-              borderRadius: '8px',
-              border: '1px solid #e5e7eb'
-            }}>
-              <p style={{ margin: '0', fontSize: '0.9em' }}>
-                No members found in this group.
-              </p>
-            </div>
-          )}
-
-          {!loading && !error && members.length > 0 && (
-            <div style={{
-              overflowX: 'auto',
-              overflowY: 'hidden',
-              scrollBehavior: 'smooth',
-              WebkitOverflowScrolling: 'touch', // Smooth scrolling on iOS
-              paddingBottom: '10px',
-              animation: 'slideUp 0.4s ease-out'
-            }}>
-              <div style={{
-                display: 'flex',
-                gap: '16px',
-                paddingRight: '20px', // Extra padding at the end
-                minWidth: 'fit-content'
-              }}>
-                {members.map((member) => (
-                  <div key={member.uId} style={{ flexShrink: 0 }}>
-                    <MemberCard user={member} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
+        <MemberSection 
+          members={members}
+          loading={loading}
+          error={error}
+        />
       )}
 
 
