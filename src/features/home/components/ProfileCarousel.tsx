@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "../../../components/ui/carousel";
 
 const profiles = [
   {
@@ -112,7 +112,7 @@ const ProfileCarousel = () => {
                      <div className="aspect-[4/5] overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 mb-4 w-full">
                         <img
                           src={profile.image}
-                          alt={`${profile.name} profile picture`}
+                          alt={`${profile.name} profile`}
                           className="w-full h-full object-cover"
                           loading="lazy"
                         />

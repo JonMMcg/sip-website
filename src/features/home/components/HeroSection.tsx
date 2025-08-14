@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import UpRightArrow from "@/components/ui/up-right-arrow";
 
 const HeroSection = () => {
   const scrollToDownload = () => {
