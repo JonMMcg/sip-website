@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
 
+// This interface now only includes the fields needed for display.
 export interface User {
   uId: string;
   name: string;
   username: string;
   quote: string;
   profileImageURL: string;
-  email: string;
   followers: number;
   following: number;
   subscribing: number;
   createdAt: any;
-  lastTokenUpdate: any;
-  fcmToken?: string;
-  stripeCustomerId?: string;
 }
 
 interface MemberCardProps {
