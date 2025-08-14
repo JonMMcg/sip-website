@@ -20,7 +20,7 @@ module.exports = {
         'primary-white': '#FCFCFC',
         'primary-red': '#ED0942',
         'primary-yellow': '#FCD549',
-        'secondary-yellow': '#FCF0C2',
+        'secondary-yellow': 'rgba(252, 240, 194, 0.6)', // #FCF0C2 at 60% opacity
         'primary-red': '#ED0942',
         'secondary-red': 'rgba(237, 9, 66, 0.4)', // Primary Red at 40%
         'primary-blue': '#002649',
