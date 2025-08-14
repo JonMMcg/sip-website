@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../features/auth/hooks/useAuth";
 
 interface NavigationProps {
-  variant?: 'default' | 'dark' | 'download';
+  variant?: 'default' | 'dark' | 'download' | 'static';
   logoSrc?: string;
 }
 
@@ -35,14 +35,20 @@ const Navigation = ({ variant = 'default', logoSrc = 'https://framerusercontent.
 
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
+      className={`${
+        variant === 'static' 
+          ? 'relative w-full' 
+          : 'fixed top-0 left-0 right-0 z-50'
+      } transition-all duration-300 ease-out ${
         variant === 'download'
           ? 'bg-white shadow-sm'
+          : variant === 'static'
+          ? 'bg-primary-blue shadow-sm'
           : isScrolled 
           ? 'backdrop-blur-md shadow-lg' 
           : 'bg-transparent'
       }`}
-      style={isScrolled && variant !== 'download' ? { backgroundColor: '#002649' } : {}}
+      style={isScrolled && variant !== 'download' && variant !== 'static' ? { backgroundColor: '#002649' } : {}}
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="inline-block">
@@ -66,6 +72,17 @@ const Navigation = ({ variant = 'default', logoSrc = 'https://framerusercontent.
           >
             About
           </button>
+          <Link
+            to="/featured-groups"
+            className={`transition-colors ${
+              variant === 'dark' || variant === 'download'
+                ? 'text-[#002649] hover:text-[#002649]/70' 
+                : 'text-white hover:text-white/70'
+            }`}
+            style={{ fontFamily: 'Lato, sans-serif', fontWeight: '500' }}
+          >
+            Featured Groups
+          </Link>
           <button
             onClick={() => scrollToSection('download')}
             className={`transition-colors ${

@@ -39,7 +39,7 @@ const FeaturedGroupsPage = () => {
 
   return (
     <div className="min-h-screen bg-primary-white">
-      <Navigation />
+      <Navigation variant="static" />
       <main className="container mx-auto px-5 py-10">
         <div className="text-center mb-10">
           <h1 className="text-4xl font-bold text-primary-black mb-4">
