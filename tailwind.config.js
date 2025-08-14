@@ -16,6 +16,20 @@ module.exports = {
     },
     extend: {
       colors: {
+        // New Standardized Color Palette
+        'primary-white': '#FCFCFC',
+        'primary-red': '#ED0942',
+        'primary-yellow': '#FCD549',
+        'secondary-yellow': '#FCF0C2',
+        'primary-red': '#ED0942',
+        'secondary-red': 'rgba(237, 9, 66, 0.4)', // Primary Red at 40%
+        'primary-blue': '#002649',
+        'secondary-blue': 'rgba(12, 42, 70, 0.8)',   // #0C2A46 at 80%
+        'primary-gray': 'rgba(12, 42, 70, 0.6)',     // #0C2A46 at 60%
+        'secondary-gray': 'rgba(12, 42, 70, 0.4)',   // #0C2A46 at 40%
+        'primary-black': '#00061A',
+
+        // Existing Theming Colors (untouched)
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

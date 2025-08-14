@@ -20,9 +20,9 @@ interface MemberCardProps {
 export const MemberCard: React.FC<MemberCardProps> = ({ user }) => {
   return (
     <div className="
-      relative w-[280px] min-w-[280px] max-w-[280px] 
-      p-5 m-2 rounded-[20px] 
-      bg-white bg-gradient-to-br from-white to-slate-50 
+      relative w-full min-w-[260px] max-w-[280px] 
+      p-4 m-2 rounded-[20px] 
+      bg-primary-white bg-gradient-to-br from-primary-white to-slate-50 
       shadow-soft 
       transition-all duration-300 ease-in-out 
       cursor-pointer 
@@ -31,71 +31,67 @@ export const MemberCard: React.FC<MemberCardProps> = ({ user }) => {
     ">
       
       {/* Profile Section */}
-      <div className="flex items-center mb-4.5">
-        <div className="relative">
-          <img 
-            src={user.profileImageURL || '/placeholder-avatar.png'} 
-            alt={user.name || 'User'} 
-            className="w-14 h-14 rounded-full object-cover border-2 border-blue-500/10 shadow-md"
-          />
-          {/* Online indicator */}
-          <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-white shadow-sm" />
-        </div>
+      <div className="flex items-center mb-4">
+        <img 
+          src={user.profileImageURL || '/placeholder-avatar.png'} 
+          alt={user.name || 'User'} 
+          className="w-16 h-16 rounded-full object-cover border-2 border-primary-blue/10 shadow-md"
+        />
         
-        <div className="ml-3.5 flex-1">
-          <h3 className="m-0 mb-1 text-base font-bold text-gray-800 leading-tight">
+        <div className="ml-4 flex-1">
+          <h3 className="m-0 mb-1 text-base font-bold text-primary-black leading-tight">
             {user.name || 'Unknown User'}
           </h3>
-          <p className="m-0 text-sm text-gray-500 font-medium">
+          <p className="m-0 text-sm text-secondary-gray font-medium">
             @{user.username || 'unknown'}
           </p>
         </div>
       </div>
 
+      {/* Stats Section - MOVED */}
+      <div className="flex justify-between py-3 mb-3 border-y border-slate-200/60">
+        <div className="text-center flex-1 min-w-0">
+          <div className="text-sm font-bold text-primary-black mb-1 truncate">
+            {(user.followers || 0).toLocaleString()}
+          </div>
+          <div className="text-[10px] text-secondary-gray font-semibold uppercase tracking-wide">
+            Followers
+          </div>
+        </div>
+        
+        <div className="w-px bg-slate-200/80 mx-2" />
+        
+        <div className="text-center flex-1 min-w-0">
+          <div className="text-sm font-bold text-primary-black mb-1 truncate">
+            {(user.following || 0).toLocaleString()}
+          </div>
+          <div className="text-[10px] text-secondary-gray font-semibold uppercase tracking-wide">
+            Following
+          </div>
+        </div>
+        
+        <div className="w-px bg-slate-200/80 mx-2" />
+        
+        <div className="text-center flex-1 min-w-0">
+          <div className="text-sm font-bold text-primary-black mb-1 truncate">
+            {(user.subscribing || 0).toLocaleString()}
+          </div>
+          <div className="text-[10px] text-secondary-gray font-semibold uppercase tracking-wide">
+            Subscribing
+          </div>
+        </div>
+      </div>
+
       {/* Quote Section */}
       {user.quote && (
-        <div className="mb-4">
-          <div className="p-4 bg-blue-500/5 rounded-2xl border border-blue-500/10 relative">
-            <p className="m-0 text-sm leading-relaxed text-gray-600 italic">
+        <div className="mb-2">
+          <div className="p-4 bg-primary-blue/5 rounded-2xl border border-primary-blue/10 relative">
+            <p className="m-0 text-sm leading-relaxed text-primary-gray italic">
               "{user.quote}"
             </p>
           </div>
         </div>
       )}
-
-      {/* Stats Section */}
-      <div className="flex justify-between pt-4 border-t border-slate-200/60">
-        <div className="text-center flex-1">
-          <div className="text-base font-bold text-gray-800 mb-1">
-            {(user.followers || 0).toLocaleString()}
-          </div>
-          <div className="text-xs text-gray-500 font-semibold uppercase tracking-wider">
-            Followers
-          </div>
-        </div>
-        
-        <div className="w-px bg-slate-200/80 mx-3" />
-        
-        <div className="text-center flex-1">
-          <div className="text-base font-bold text-gray-800 mb-1">
-            {(user.following || 0).toLocaleString()}
-          </div>
-          <div className="text-xs text-gray-500 font-semibold uppercase tracking-wider">
-            Following
-          </div>
-        </div>
-        
-        <div className="w-px bg-slate-200/80 mx-3" />
-        
-        <div className="text-center flex-1">
-          <div className="text-base font-bold text-gray-800 mb-1">
-            {(user.subscribing || 0).toLocaleString()}
-          </div>
-          <div className="text-xs text-gray-500 font-semibold uppercase tracking-wider">
-            Subscribing
-          </div>
-        </div>
-      </div>
 
     </div>
   );
