@@ -215,17 +215,22 @@ const appCheck = initializeAppCheck(app, {
 
 ```
 src/
-├── components/          # Shared UI components
+├── components/          # Shared UI components (Navigation, Footer, etc.)
+│   └── ui/             # Design system components (Radix UI)
 ├── features/            # Feature-based modules
-│   └── featuredGroups/  # Group discovery feature
-│       ├── components/  # Feature-specific components
-│       ├── hooks/       # Custom React hooks
-│       └── services/    # API and business logic
-├── hooks/               # Global custom hooks
-├── services/            # Global services (Firebase, API)
-├── utils/               # Utility functions
-└── types/               # TypeScript type definitions
+│   ├── auth/           # Authentication feature
+│   ├── featuredGroups/ # Group discovery feature
+│   └── home/           # Homepage feature
+│       ├── components/ # Feature-specific components
+│       └── homePage.tsx # Feature orchestrator
+├── hooks/              # Global custom hooks
+├── lib/                # Utility functions and configurations
+├── pages/              # Static page wrappers (Contact, Terms, etc.)
+└── [index.css, index.tsx, etc.] # App configuration files
 ```
+
+**Note on `pages/` Directory:**
+The `pages/` directory contains static page wrappers that compose features and shared components. These are kept separate from features because they represent complete page layouts rather than reusable business logic. Examples: Contact.tsx, TermsOfService.tsx, PrivacyPolicy.tsx.
 
 ### Design Patterns
 
