@@ -101,7 +101,7 @@ export const GroupCard: React.FC<GroupCardProps> = ({ group }) => {
           </div>
           
           <span className="text-secondary-gray text-sm font-medium">
-            {(group.subscribersCount || 0).toLocaleString()} members
+            {(group.subscribersCount || 0).toLocaleString()} subscribers
           </span>
         </div>
         
