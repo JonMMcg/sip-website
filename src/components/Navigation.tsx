@@ -83,6 +83,28 @@ const Navigation = ({ variant = 'default', logoSrc = 'https://framerusercontent.
           >
             Featured Groups
           </Link>
+          <Link
+            to="/yi-ama"
+            className={`transition-colors ${
+              variant === 'dark' || variant === 'download'
+                ? 'text-[#002649] hover:text-[#002649]/70' 
+                : 'text-white hover:text-white/70'
+            }`}
+            style={{ fontFamily: 'Lato, sans-serif', fontWeight: '500' }}
+          >
+            Yi's AMA
+          </Link>
+          <Link
+            to="/sip-founders"
+            className={`transition-colors ${
+              variant === 'dark' || variant === 'download'
+                ? 'text-[#002649] hover:text-[#002649]/70' 
+                : 'text-white hover:text-white/70'
+            }`}
+            style={{ fontFamily: 'Lato, sans-serif', fontWeight: '500' }}
+          >
+            SIP Founders
+          </Link>
           <button
             onClick={() => scrollToSection('download')}
             className={`transition-colors ${

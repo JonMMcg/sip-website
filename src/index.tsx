@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import TermsOfService from './pages/TermsOfService';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import FeaturedGroupsPage from './features/featuredGroups/featuredGroupsPage';
+import GroupMemberPage from './features/groupMemberPage/groupMemberPage';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -21,6 +22,8 @@ root.render(
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/featured-groups" element={<FeaturedGroupsPage />} />
+        <Route path="/yi-ama" element={<GroupMemberPage groupId="smqKyEAq4hZfY1ApzVEH" />} />
+        <Route path="/sip-founders" element={<GroupMemberPage groupId="oF7Slg0YEEEtsfyKSkdV" />} />
       </Routes>
     </Router>
   </React.StrictMode>
