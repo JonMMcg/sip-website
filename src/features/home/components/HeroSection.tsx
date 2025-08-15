@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import UpRightArrow from "@/components/ui/up-right-arrow";
 
 const HeroSection = () => {
   const scrollToDownload = () => {
@@ -20,24 +18,19 @@ const HeroSection = () => {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      <div className="absolute inset-0 bg-black/45"></div>
+      <div className="absolute inset-0 bg-primary-black/45"></div>
       <div className="w-full relative z-10">
         <div className="container mx-auto px-6">
         <div className="max-w-2xl">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-medium text-white mb-6 leading-tight animate-fade-in">
+          <h1 className="hero-title font-medium text-primary-white mb-6 leading-tight animate-fade-in">
             Ask. Answer. Connect.
           </h1>
-          <p className="text-base md:text-lg text-white/90 mb-12 leading-relaxed font-normal animate-fade-in">
+          <p className="text-base md:text-lg text-primary-white/90 mb-12 leading-relaxed font-normal animate-fade-in">
             From inspiring leaders to everyday experts, Sip lets you ask questions and get answers through AMAs (Ask Me Anything).
           </p>
           <button 
             onClick={scrollToDownload}
-            className="text-white font-medium px-8 py-3 inline-flex items-center transition-all duration-200 ease-out hover:shadow-lg focus:ring-2 focus:ring-offset-2 animate-fade-in text-base"
-            style={{ 
-              backgroundColor: '#ED0942', 
-              borderRadius: '10px',
-              fontFamily: 'Lato, sans-serif'
-            }}
+            className="cta-button text-primary-white font-medium px-8 py-3 bg-primary-red hover:bg-primary-red/90 rounded-xl inline-flex items-center transition-all duration-200 ease-out hover:shadow-lg focus:ring-2 focus:ring-primary-red focus:ring-offset-2 animate-fade-in text-base"
           >
             Get Started
           </button>

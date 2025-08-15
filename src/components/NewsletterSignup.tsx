@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { toast } from "../hooks/use-toast";
-import UpRightArrow from "./ui/up-right-arrow";
 
 const NewsletterSignup = () => {
   const [email, setEmail] = useState("");

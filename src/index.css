@@ -2,16 +2,262 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Sip Landing Page Design System */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 10% 6%; /* #0F0F0F near-black */
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 10% 6%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 10% 6%;
+
+    /* Primary brand color - #ED0942 */
+    --primary: 345 94% 51%; /* #ED0942 */
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 345 94% 46%;
+
+    /* Secondary text color - #4B5563 */
+    --secondary: 0 0% 98%;
+    --secondary-foreground: 210 10% 6%;
+
+    /* Muted tones for subtle elements */
+    --muted: 0 0% 96%;
+    --muted-foreground: 220 9% 39%; /* #4B5563 */
+
+    /* Accent color for highlights */
+    --accent: 0 0% 96%;
+    --accent-foreground: 210 10% 6%;
+    
+    /* Warm accent background - #FFF6D8 */
+    --accent-warm: 44 100% 93%;
+    --accent-warm-foreground: 210 10% 6%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 345 94% 51%;
+
+    --radius: 0.75rem;
+
+    /* Typography scale - Inter font */
+    --font-heading: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    /* Spacing scale for consistent layouts */
+    --section-padding: 5rem;
+    --container-padding: 1.5rem;
+    --page-padding-desktop: 1.5rem;
+
+    /* Smooth transitions */
+    --transition-smooth: all 0.2s ease-out;
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-medium: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-large: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    --shadow-button: 0 8px 25px -8px rgb(237 9 66 / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.1;
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* CTA Button Styles */
+  .cta-button {
+    @apply bg-primary text-primary-foreground font-medium rounded-xl px-5 py-3.5 inline-flex items-center gap-2 transition-all duration-200 ease-out hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+    box-shadow: var(--shadow-button);
+  }
+
+  .cta-button:hover {
+    box-shadow: var(--shadow-medium);
+  }
+
+  /* Profile Card Styles */
+  .profile-card {
+    @apply transition-all duration-200 ease-out hover:scale-[1.03];
+  }
+
+  .profile-card:hover {
+    box-shadow: var(--shadow-medium);
+  }
+
+  /* Link Styles */
+  a {
+    @apply transition-colors duration-200 ease-out;
+  }
+
+  a:hover {
+    @apply underline;
+  }
+
+  /* Support for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .transition-smooth,
+    .transition-bounce,
+    .cta-button,
+    .profile-card {
+      transition: none;
+    }
+    
+    .cta-button:hover,
+    .profile-card:hover {
+      transform: none;
+    }
+  }
+
+  /* Fade-in animation for hero content */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes slideDown {
+    from { 
+      opacity: 0; 
+      transform: translateY(-20px);
+      max-height: 0;
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0);
+      max-height: 1000px;
+    }
+  }
+  
+  @keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in:nth-child(2) {
+    animation-delay: 0.2s;
+    opacity: 0;
+  }
+
+  .animate-fade-in:nth-child(3) {
+    animation-delay: 0.4s;
+    opacity: 0;
+  }
 }

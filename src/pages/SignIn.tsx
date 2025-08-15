@@ -1,6 +1,6 @@
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import SignInComponent from "../auth/components/SignIn";
+import SignInComponent from "../features/auth/components/SignIn";
 
 const SignInPage = () => {
   return (

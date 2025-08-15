@@ -1,4 +1,3 @@
-import { Instagram, Linkedin, Twitter } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
@@ -64,7 +63,7 @@ const Footer = () => {
               <a
                 href="https://www.instagram.com/sipthatpipinghottea/"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 className="transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg"
                 aria-label="Follow us on Instagram"
               >
@@ -77,7 +76,7 @@ const Footer = () => {
               <a
                 href="https://www.linkedin.com/company/sip-inc/"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 className="transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg"
                 aria-label="Follow us on LinkedIn"
               >
@@ -90,7 +89,7 @@ const Footer = () => {
               <a
                 href="https://x.com/sip_scribe"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 className="transition-all duration-200 ease-out hover:scale-110 hover:shadow-lg"
                 aria-label="Follow us on X (Twitter)"
               >
